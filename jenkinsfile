@@ -12,9 +12,17 @@ pipeline
 		}
 		stage("test")
 		{
+			steps
+			{
+				sh 'ls -l'
+			}
 		}
 		stage("deploy")
 		{
+			steps
+			{
+				sh 'ls -l'
+			}
 		}
 	}
 
