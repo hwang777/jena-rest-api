@@ -71,8 +71,11 @@ public class Eligibility {
                 while ( result.hasNext() )
                 {
                     Record row = result.next();
+                    jg.writeStartObject();
+                    jg.writeFieldName("name");
                     jg.writeString(row.get("name").asString());
-                    System.out.println(row.get("name").asString());
+                    jg.writeEndObject();
+                    //System.out.println(row.get("name").asString());
                 }
                 jg.writeEndArray();
                 jg.writeEndObject();
