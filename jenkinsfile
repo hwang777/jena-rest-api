@@ -24,6 +24,13 @@ pipeline
 				sh 'ls -l'
 			}
 		}
+		stage("post")
+		{
+			always
+			{
+				archiveArtifacts artifacts: "target/api.war", fingerprint: true
+			}
+		}
 	}
 
 }
