@@ -1,9 +1,27 @@
-pipeline {
+pipeline
+{
 	agent any
-	stages {
-		stage("build"){
-			steps{
+	stages
+	{
+		stage("build")
+		{
+			steps
+			{
 				sh 'mvn -Dmaven.test.failure.ignore=true install'
+			}
+		}
+		stage("test")
+		{
+			steps
+			{
+			
+			}
+		}
+		stage("deploy")
+		{
+			steps
+			{
+			
 			}
 		}
 	}
