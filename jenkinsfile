@@ -26,9 +26,12 @@ pipeline
 		}
 		stage("post")
 		{
+			steps
+			{
 			always
 			{
 				archiveArtifacts artifacts: "target/api.war", fingerprint: true 
+			}
 			}
 		}
 	}
