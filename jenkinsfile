@@ -18,7 +18,7 @@ pipeline
 		{
 			steps
 			{
-				sh 'ls -l'
+				sh 'mvn test'
 			}
 		}
 		stage("deploy")
