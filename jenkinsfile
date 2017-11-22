@@ -24,12 +24,12 @@ pipeline
 				sh 'ls -l'
 			}
 		}
-		post
+	}
+	post
+	{
+		always
 		{
-			always
-			{
-				archiveArtifacts artifacts: 'target/api.war', fingerprint: true
-			}
+			archiveArtifacts artifacts: 'target/api.war', fingerprint: true
 		}
 	}
 
