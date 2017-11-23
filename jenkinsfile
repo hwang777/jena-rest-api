@@ -1,6 +1,11 @@
 pipeline
 {
 	agent any
+	environment {
+        PROJ = 'JENA API Project'
+        MULTIBRANCH    = 'TRUE'
+    }
+	
 	options
 	{
 		buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '2'))
@@ -47,7 +52,7 @@ pipeline
 			archiveArtifacts artifacts: 'target/api.war', fingerprint: true
 			junit "target/surefire-reports/*.xml"   
 			emailext(
-				subject: "Subject",
+				subject: "$PROJ $branch Build",
 				body:  "Body",
 				to: "hw2@hotmail.com"
 			)
