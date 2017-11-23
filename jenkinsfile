@@ -47,6 +47,9 @@ pipeline
 	}
 	post
 	{
+		when {
+			    branch 'master'
+			}
 		always
 		{
 			archiveArtifacts artifacts: 'target/api.war', fingerprint: true
