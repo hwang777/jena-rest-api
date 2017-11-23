@@ -30,6 +30,7 @@ pipeline
 			steps
 			{
 				echo 'Play with git'
+				sh 'whoami'
 				sh 'git stash'
 				sh 'git checkout development'
 				sh 'git pull origin'
