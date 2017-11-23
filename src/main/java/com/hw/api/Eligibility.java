@@ -57,7 +57,7 @@ public class Eligibility {
             public void write( OutputStream os ) throws IOException, WebApplicationException
             {
 
-        		System.out.println("Looking for " + program);
+        		System.out.println("Looking for Program:    " + program);
         		final Map<String, Object> params = MapUtil.map( "program", program );
         		System.out.println("Looking for " + program);
         		Driver driver = GraphDatabase.driver( neo4JServer, AuthTokens.basic( username, passwd) );
