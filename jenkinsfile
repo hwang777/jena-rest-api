@@ -46,6 +46,11 @@ pipeline
 		{
 			archiveArtifacts artifacts: 'target/api.war', fingerprint: true
 			junit "target/surefire-reports/*.xml"   
+			emailext(
+				subject: "Subject",
+				body:  "Body",
+				to: "hw2@hotmail.com"
+			)
 		}
 	}
 
