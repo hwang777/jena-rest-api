@@ -50,7 +50,11 @@ pipeline
 		always
 		{
 			archiveArtifacts artifacts: 'target/api.war', fingerprint: true
-			junit "target/surefire-reports/*.xml"   
+			junit "target/surefire-reports/*.xml"
+			sh 'env > env.txt' 
+			for (String i : readFile('env.txt').split("\r?\n")) {
+			    println i
+			}
 			emailext(
 				subject: "$PROJ Build $BUILD_DISPLAY_NAME",
 				body:  "$BUILD_ID - $BUILD_NUMBER - $BUILD_TAG - $BUILD_URL",
