@@ -47,11 +47,12 @@ pipeline
 	}
 	post
 	{
-		when {
-			    branch 'master'
-			}
+
 		always
 		{
+			when {
+			    branch 'master'
+			}
 			archiveArtifacts artifacts: 'target/api.war', fingerprint: true
 			junit "target/surefire-reports/*.xml"
 			echo "$PROJ Build $BUILD_DISPLAY_NAME - $BUILD_ID - $BUILD_NUMBER - $BUILD_TAG"
