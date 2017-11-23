@@ -34,7 +34,7 @@ pipeline
 		always
 		{
 			archiveArtifacts artifacts: 'target/api.war', fingerprint: true
-			junit "target/surefire-reports/*.xml"  
+			junit "target/surefire-reports/*.xml"            
 		}
 	}
 
