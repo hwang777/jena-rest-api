@@ -29,6 +29,7 @@ pipeline
 
 			steps
 			{
+				echo 'Play with git'
 				sh 'git stash'
 				sh 'git checkout development'
 				sh 'git checkout master'
