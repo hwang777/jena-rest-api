@@ -21,11 +21,19 @@ pipeline
 				sh 'mvn test'
 			}
 		}
-		stage("deploy")
+		stage("prompt to master")
 		{
+			when {
+			    branch 'development'
+			}
+
 			steps
 			{
-				sh 'ls -l'
+				sh 'git stash'
+				sh 'git checkout developemnt'
+				sh 'git checkout master'
+				sh 'git merge developemnt'
+				sh 'git push origin master'
 			}
 		}
 	}
