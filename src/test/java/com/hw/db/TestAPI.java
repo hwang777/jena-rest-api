@@ -20,5 +20,10 @@ public class TestAPI
 	{
 		
 	}
+	@Test
+	public void test3()
+	{
+		
+	}
 
 }
