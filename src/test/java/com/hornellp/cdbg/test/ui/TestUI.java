@@ -13,7 +13,7 @@ public class TestUI {
     private WebDriver driver;
     @Before
     public void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:/apps/webdrive/chromedriver.exe");
         driver = new ChromeDriver();
     }
     @Test
