@@ -12,13 +12,7 @@ pipeline
 	}
 	stages
 	{
-		stage("build")
-		{
-			steps
-			{
-				sh 'mvn -Dmaven.test.failure.ignore=true install'
-			}
-		}
+
 		stage("test")
 		{
 			steps
@@ -26,34 +20,20 @@ pipeline
 				sh 'mvn test'
 			}
 		}
-		stage("prompt to master")
+				stage("test api")
 		{
-			when {
-			    branch 'development'
-			}
-
 			steps
 			{
-				echo 'Play with git'
-				sh 'whoami'
-				sh 'git stash'
-				sh 'git checkout development'
-				sh 'git pull origin'
-				sh 'git checkout master'
-				sh 'git merge development'
-				sh 'git push origin master'
+				sh 'mvn test'
 			}
 		}
+
 	}
 	post
 	{
 
 		always
 		{
-			when {
-			    branch 'master'
-			}
-			archiveArtifacts artifacts: 'target/api.war', fingerprint: true
 			junit "target/surefire-reports/*.xml"
 			echo "$PROJ Build $BUILD_DISPLAY_NAME - $BUILD_ID - $BUILD_NUMBER - $BUILD_TAG"
 			emailext(
