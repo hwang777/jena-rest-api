@@ -1,6 +1,7 @@
 pipeline
 {
 	agent any
+	
 	environment {
         PROJ = 'JENA API Project'
         MULTIBRANCH    = 'TRUE'
